@@ -1,12 +1,26 @@
 
 public class MyLinkedList {
 	private Node root;
+	
+	/**
+	 * Start a list with a null root.
+	 */
+	public MyLinkedList() {
+		root = null;
+	}
+	
+	/**
+	 * Start a list with rootValue as the first item.
+	 * @param rootValue
+	 */
 	public MyLinkedList(int rootValue){
 		root = new Node(rootValue);
 	}
 	
-	/*
-	 * Add int value to the end of the list
+
+	/**
+	 * Add a value to the end of the list.
+	 * @param value
 	 */
 	public void add(int value){
 		Node curr = root;
@@ -15,6 +29,7 @@ public class MyLinkedList {
 		}
 		curr.setNext(new Node(value));
 	}
+	
 	
 	/**
 	 * get the item stored at index
