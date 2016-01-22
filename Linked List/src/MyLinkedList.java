@@ -23,6 +23,11 @@ public class MyLinkedList {
 	 * @param value
 	 */
 	public void add(int value){
+		if (root == null)
+		{
+			root = new Node(value);
+			return;
+		}
 		Node curr = root;
 		while (curr.getNext() != null) {
 			curr = curr.getNext();

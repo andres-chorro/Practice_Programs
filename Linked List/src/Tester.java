@@ -37,6 +37,7 @@ public class Tester {
 		System.out
 				.println("Enter an integer Value to end to the end of the list:");
 		int in = sc.nextInt();
+		sc.nextLine(); //skip breakline after int
 		list.add(in);
 	}
 }
