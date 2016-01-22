@@ -1,30 +1,29 @@
-
 public class MyLinkedList {
 	private Node root;
-	
+
 	/**
 	 * Start a list with a null root.
 	 */
 	public MyLinkedList() {
 		root = null;
 	}
-	
+
 	/**
 	 * Start a list with rootValue as the first item.
+	 * 
 	 * @param rootValue
 	 */
-	public MyLinkedList(int rootValue){
+	public MyLinkedList(int rootValue) {
 		root = new Node(rootValue);
 	}
-	
 
 	/**
 	 * Add a value to the end of the list.
+	 * 
 	 * @param value
 	 */
-	public void add(int value){
-		if (root == null)
-		{
+	public void add(int value) {
+		if (root == null) {
 			root = new Node(value);
 			return;
 		}
@@ -34,19 +33,32 @@ public class MyLinkedList {
 		}
 		curr.setNext(new Node(value));
 	}
-	
-	
+
+	/**
+	 * Remove and return the element at the head of the list.
+	 */
+	public int pop() {
+		Node tmp = root;
+		if (root != null) {
+			root = root.getNext();
+		}
+		return tmp.getData();	
+	}
+
 	/**
 	 * get the item stored at index
-	 * @param index the index of the desired object
-	 * @return the value of the node at index. -1 if index is greater than (size-1)
+	 * 
+	 * @param index
+	 *            the index of the desired object
+	 * @return the value of the node at index. -1 if index is greater than
+	 *         (size-1)
 	 */
-	
+
 	public int get(int index) {
 		if (index < 0)
 			return -1;
 		Node curr = root;
-		while (true){
+		while (true) {
 			if (curr == null)
 				return -1;
 			if (index == 0)
@@ -55,7 +67,7 @@ public class MyLinkedList {
 			index--;
 		}
 	}
-	
+
 	public String toString() {
 		String s = "";
 		Node curr = root;

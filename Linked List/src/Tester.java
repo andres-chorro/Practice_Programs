@@ -20,12 +20,14 @@ public class Tester {
 		boolean done = false;
 		while (!done) {
 			System.out.println("The list is currently: " + list);
-			System.out.println("Select an option [A]dd, [G]et, [D]one");
+			System.out.println("Select an option [A]dd, [G]et, [P]op, [D]one");
 			in = sc.nextLine();
 			if (in.equalsIgnoreCase("a")) {
 				addMenu();
 			} else if (in.equalsIgnoreCase("g")) {
 				// get
+			} else if (in.equalsIgnoreCase("p")) {
+				System.out.print(list.pop() + " has been removed.\n");
 			} else if (in.equalsIgnoreCase("d")) {
 				done = true;
 			}
@@ -37,7 +39,7 @@ public class Tester {
 		System.out
 				.println("Enter an integer Value to end to the end of the list:");
 		int in = sc.nextInt();
-		sc.nextLine(); //skip breakline after int
+		sc.nextLine(); // skip breakline after int
 		list.add(in);
 	}
 }
