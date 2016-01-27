@@ -20,12 +20,13 @@ public class Tester {
 		boolean done = false;
 		while (!done) {
 			System.out.println("The list is currently: " + list);
-			System.out.println("Select an option [A]dd, [G]et, [R]emove, [P]op, [D]one");
+			System.out
+					.println("Select an option [A]dd, [G]et, [R]emove, [P]op, [D]one");
 			in = sc.nextLine();
 			if (in.equalsIgnoreCase("a")) {
 				addMenu();
 			} else if (in.equalsIgnoreCase("g")) {
-				// get
+				getMenu();
 			} else if (in.equalsIgnoreCase("p")) {
 				System.out.print(list.pop() + " has been removed.\n");
 			} else if (in.equalsIgnoreCase("r")) {
@@ -37,6 +38,15 @@ public class Tester {
 		sc.close();
 	}
 
+	private static void getMenu() {
+		System.out
+				.println("Enter an index to get:");
+		int in = sc.nextInt();
+		sc.nextLine(); // skip breakline after int
+		int ret  = list.get(in);
+		System.out.println("You got: " + ret);
+	}
+
 	private static void addMenu() {
 		System.out
 				.println("Enter an integer value to end to the end of the list:");
@@ -44,7 +54,7 @@ public class Tester {
 		sc.nextLine(); // skip breakline after int
 		list.add(in);
 	}
-	
+
 	private static void removeMenu() {
 		System.out.println("Enter an index to remove:");
 		int index = sc.nextInt();
