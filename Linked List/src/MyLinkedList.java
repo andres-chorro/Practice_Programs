@@ -67,6 +67,22 @@ public class MyLinkedList {
 			index--;
 		}
 	}
+	/**
+	 * Remove the item at index
+	 * @param index index of the item to remove
+	 */
+	public void remove(int index) {
+		if (index < 0) 
+			return;
+		int i = 0;
+		Node tmp = root;
+		while (i < index - 1) {
+			if (tmp.getNext() == null)
+				return;
+			tmp = tmp.getNext();
+		}
+		tmp.setNext(tmp.getNext().getNext());
+	}
 
 	public String toString() {
 		String s = "";
