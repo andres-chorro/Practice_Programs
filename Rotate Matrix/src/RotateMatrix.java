@@ -1,9 +1,8 @@
 
 public class RotateMatrix {
 	public static void main(String[] args) {
-		int[][] test = {{3,3},{3,3}};
-		//printArray(rotate(test));
-		printArray(generateScreen(1));
+		printArray(generateScreen(3));
+		printArray(rotate(generateScreen(3)));
 		printArray(generateScreen(4));
 		printArray(generateScreen(5));
 		printArray(generateScreen(0));
@@ -13,15 +12,19 @@ public class RotateMatrix {
 	public static int[][] rotate(int[][] matrix) {
 		if (matrix.length != matrix[0].length)
 			return null;
-		int x, y, min, tmp;
-		x = y = min = tmp = 0;
+		int x, y, nextx, nexty, min, tmp;
+		x = y = nextx = nexty = min = tmp = 0;
 		int max = matrix.length - 1;
 		while (min < max) {
 			for (int i = min; i <= max; i++) {
-				for (int j = 0; j < 4; j++) {
-					
-				}
+				int top = matrix[i][min];
+				matrix[i][min] = matrix[min][max-(i-min)];//left to top
+				matrix[min][max-(i-min)] = matrix[max-(i-min)][max];//bottom to left
+				matrix[max-(i-min)][max] = matrix[max][i];//right to bottom
+				matrix[max][i] = top;
 			}
+			min++;
+			max--;
 		}
 		return matrix;
 	}
