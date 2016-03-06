@@ -37,7 +37,7 @@ public class MyQueue {
 			return;
 		if (isQueue)
 			toStack();
-		stack[size] = value;
+		stack.push(value);
 		size++;
 
 	}
@@ -47,7 +47,7 @@ public class MyQueue {
 			return -1;
 		if (!isQueue)
 			toQueue();
-		int tmp = queue[size - 1];
+		int tmp = queue.pop();
 		size--;
 		return tmp;
 
